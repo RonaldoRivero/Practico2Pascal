@@ -1,0 +1,370 @@
+unit Unit2;
+
+{$mode objfpc}{$H+}
+
+interface
+
+uses
+  Classes, SysUtils;
+const
+  MAX_E=1024;
+  Type
+    Practico2=class
+    private
+      Elem:Array[1..MAX_E] of integer;
+      dim: integer;
+    public
+      constructor create();
+      procedure FijarDim(num:integer);
+      function obtenerDim():integer;
+      procedure FijarEle(ele,pos:integer);
+      procedure Pregunta1();
+      procedure Pregunta2();
+      function Pregunta3():integer;
+      procedure Pregunta4();
+      procedure Pregunta5();
+      procedure Pregunta6();
+      procedure Pregunta7();
+      procedure Pregunta8();
+      procedure Pregunta9();
+      procedure Pregunta10();
+
+      end;
+
+implementation
+constructor Practico2.create();
+var
+  i:integer;
+begin
+  dim:=0;
+  for i:=1 to dim do;
+  Elem[i]:=0;
+  i:=i+1;
+end;
+
+procedure Practico2.FijarDim(num:integer);
+begin
+  if(num<MAX_E)then
+  begin
+  dim:=num;
+  end;
+end;
+function Practico2.ObtenerDim():integer;
+begin
+  result:=dim;
+end;
+
+
+
+procedure Practico2.FijarEle(ele,pos:integer);
+begin
+  if (pos>0)and(pos<=dim) then
+  begin
+  elem[pos]:=ele;
+  end;
+
+end;
+procedure Practico2.Pregunta1();
+var
+  i,x,b,c,pos,a:integer;
+begin
+  c:=0;
+  for i:=1 to dim do
+  begin
+    x:=Elem[i];
+    for b:=1 to x do
+    begin
+      if (x mod b)=0 then
+      c:=c+1;
+    end;
+  if (c=2)then
+  a:=i;
+  for pos:=i to dim do
+  begin
+  Elem[pos]:=Elem[pos+1];
+  dim:=dim-1;
+  a:=a-1;
+  end;
+end;
+
+end;
+procedure Practico2.Pregunta2();
+var
+  i,a,b,c:integer;
+begin
+  for i:=1 to dim do
+  begin
+  a:=Elem[i];
+  for b:=i+1 to dim do
+  begin
+  if a=Elem[b] then
+  for c:=b to dim do
+  begin
+  Elem[b]:=Elem[b+1];
+  dim:=dim-1;
+  end;
+
+  end;
+  end;
+end;
+
+
+
+
+
+
+
+
+function Practico2.Pregunta3():integer;
+var
+  i,b,a:integer;
+begin
+  for i:=1 to dim do
+  begin
+  b:=Elem[i];
+  for a:=i+1 to dim do
+  begin
+  if (b=Elem[a]) then
+  ele:=Elem[b];
+  end;
+  end;
+end;
+
+
+procedure Practico2.Pregunta4():integer;
+var
+  i,a,b,c:integer;
+begin
+  for i:=1 to dim do
+  begin
+    a:=Elem[i];
+    for b:=i+1 to dim do
+    begin
+      if(a=Elem[b])then
+      for c:=b to dim do
+      begin
+        Elem[b]:=Elem[b]+1;
+        dim:=dim-1;
+      end;
+    end;
+  end;
+end;
+
+
+procedure Practico2.Pregunta5();
+var
+  p,d,aux:integer;
+begin
+ for i:=1 to dimA do
+ begin
+   Elem[dimA+1]:=ElemB[i];
+   dim:=dim+1;
+ for p:=1 to dim-1 do
+ begin
+   for d:=p+1 to dim do
+   begin
+    aux:=0;
+    if (Elem[d]<Elem[p]) then
+    (d<>p)
+    aux:=Elem[d];
+    Elem[d]:=Elem[p];
+    Elem[p]:=aux;
+   end;
+ end;
+ end;
+end;
+
+
+
+procedure Practico2.Pregunta6();
+begin
+dimA:=1;
+for i:=1 to dim do
+
+begin
+ a:=elem[i];
+ for B:=i+1 to dim do
+ begin
+  if (a=elem[B]) then
+  elemA[dimA]:=elemB;
+  dimA:=dimA+1;
+  for c:=B to dim do
+  begin
+   elem[B]:=elem[B+1];
+   dim:=dim-1;
+  end;
+  B:=B-1;
+ end;
+ if (a:=elemA[dimA-1]) then
+ elemA[dimA]:=a;
+ for i to dim do
+ begin
+  elem[i]:=elem[i+1];
+  i:=i-1;
+  elemA:=dimA+1;
+ end;
+end;
+dimB:=1;
+for i:=1 to dim do
+begin
+ elemB[i]:=elem[i];
+ dimB:=dimB+1;
+end;
+end;
+procedure Practico2.Pregunta7();
+begin
+ dim:=1;
+ w:=1;
+ x:=1;
+ y:=1;
+ z:=1;
+while (dim<=MAX_E) do
+begin
+ if elemA[w]<elemB[x]and elemA[w]<elemC[y]and elemA[w] then
+ elem[dim]:=elemA[w];
+ dim:=dim+1;
+ w:=w+1;
+ if elemB[x]<elemA[w]and elemB[x]<elemC[y]and elemB[x] then
+ elem[dim]:=elemB[x];
+ dim:=dim+1;
+ x:=x+1;
+ if elemC[y]<elemA[w]and elemC[y]<elemB[x]and elemC[y]then
+ elem[dim]:=elemC[y];
+ dim:=dim+1;
+ c:=c+1;
+ if elemD[z]<elemA[w]and elemD[z]<elemB[x]and elem[z] then
+ elem[dim]:=elemD[z];
+ dim:=dim+1;
+ z:=z+1;
+
+end;
+end;
+procedure Practico2.pregunta8();
+var
+  a,c,b:integer;
+begin
+ dim1:=0;
+ dim2:=0;
+ dim3:=0;
+ dim4:=0;
+for i:=1 to dim do
+begin
+ a:=elem[i]
+ c:=0;
+ for b:=1 to a do
+ begin
+  if((a and b)=0) then
+  c:=c+1;
+ end;
+  if (c=2) then
+  begin
+  elem1[dim1]:=a;
+  dim1:=dim1+1;
+  else
+  elem2[dim2]:=a;
+  dim2:=dim2+1;
+  end;
+  a:=b;
+  d:=0;
+  while(b<>0) do
+  begin
+   d:=d*10+(b mod 10);
+   b:=b div 10;
+  end;
+  if (a=d) then
+  begin
+   elem3[dim3]:=a;
+   dim3:=dim3+1;
+  else
+   elem4[dim4]:=a;
+   dim4:=dim4+1;
+  end;
+end;
+end;
+procedure Practico2.pregunta9();
+var
+  a,s,p,aux,d:integer;
+begin
+ a:=dim div 3;
+ for i:=1 to a-1 do
+ begin
+  s:=i;
+  for d:=i+1 to dim do
+  begin
+   if (elem[d]<elem[b]) then
+  
+ begin
+    s:=d;
+   end;
+   if(s<>p)then
+   begin
+    aux:=elem[s];
+    elem[s]:=elem[p];
+    elem[p]:=aux;
+   end;
+   end;
+  end;
+  for i:=2a to (3a div 2) do
+  begin
+   for d:=a to dim i-1 do
+   begin
+    if (elem[d]>elem[d+1]) then
+    begin
+     aux:=elem[d];
+     elem[d]:=elem[d+1];
+     elem[d+1]:=aux;
+    end;
+   end;
+  end;
+  for 2a+1 to dim-1 do
+  begin
+   for d:=i+1 to dim do
+   begin
+    if(elem[d]<elem[i]) then
+    begin
+     aux:=elem[d];
+     elem[d]:=elem[i];
+     elem[i]:=aux;
+    end;
+   end;
+  end;
+ end;
+procedure Practico2.pregunta10();
+var
+  a,aux,n,b,x:integer;
+begin
+ a:=(dim div 2);
+ aux:=elem;
+ n:=0;
+ for i:=1 to a do
+ begin
+   b:=n;
+   while (b>0) and (elem[i]<aux[b]) do
+   begin
+    aux[b+1]:=aux[b];
+    b:=b+1;
+   end;
+   aux[b+1]:=elem[i];
+   n:=n+1;
+ end;
+  for i:=a+1 to dim do
+ 
+ begin
+   b:=0;
+   while (b>0) and (elem[i]<aux[b]) do
+   begin
+    aux[b+1]:=aux[b];
+    b:=b+1;
+   end;
+   aux[b+1]:=elem[i];
+   n:=n+1;
+  end;
+  x:=dim
+  for i:=a+1 to dim do
+  begin
+   elem[a+1]:=aux[x];
+   x:=x+1;
+  end;
+end;
+
+end.
